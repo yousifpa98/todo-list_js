@@ -3,6 +3,7 @@ addEventListener("DOMContentLoaded", (event) => {
     const newTaskDescription = document.querySelector("#description-input");
     const todoForm = document.querySelector(".todo-form");
     const noEntriesMessage = document.querySelector("#no-entries");
+    const deleteAllButton = document.querySelector("#deleteAll");
     let taskList = [];
 
     // Function to check if localStorage has saved taskList
@@ -23,9 +24,11 @@ addEventListener("DOMContentLoaded", (event) => {
     function isTodoListEmpty() {
         if (taskList.length === 0) {
             noEntriesMessage.style.display = "block";
+            deleteAllButton.style.display = "none";
             return true;
         } else {
             noEntriesMessage.style.display = "none";
+            deleteAllButton.style.display = "block";
             return false;
         }
     }
@@ -107,6 +110,15 @@ addEventListener("DOMContentLoaded", (event) => {
         newTaskInput.value = ""; // Clear input field
         newTaskDescription.value = ""; // Clear description field
     });
+
+    function deleteAll () {
+        taskList = [];
+        saveTaskList();
+        renderTaskList();
+        isTodoListEmpty();
+    }
+
+    document.querySelector("#deleteAll").addEventListener("click", deleteAll);
 
     // Load saved task list from localStorage on page load
     loadTaskList();
