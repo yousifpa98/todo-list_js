@@ -4,11 +4,11 @@ This repository contains a simple Todo List web application developed by Yousif 
 
 ## Screenshots
 
-### Home Page
+##
 ![Home Page](./screenshots/screenshot1.png)
 
-### About Page
 ![About Page](./screenshots/screenshot3.png)
+##
 
 ## Features
 
